@@ -1,0 +1,41 @@
+
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ range .Pages }}
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+  {{ end }}
+  {{- $pages := .Pages.ByPublishDate.Reverse }}
+  {{- if site.Params.ShowAllPagesInArchive }}
+  {{- $pages = site.RegularPages }}
+  {{- end }}
+
+  {{- range $pages.GroupByPublishDate "2006" }}
+  {{- if ne .Key "0001" }}
+  <div class="year-box">
+    {{- $year := replace .Key "0001" "" }}
+    <h2 class="year" id="{{ $year }}">
+        {{- $year -}}
+      <sup class="count">&nbsp;{{ len .Pages }}</sup>
+    </h2>
+    {{- range .Pages.GroupByDate "January" }}
+    <div class="month-box">
+      <h3 class="month" id="{{ $year }}-{{ .Key }}">
+          {{- .Key -}}
+        <sup class="count">&nbsp;{{ len .Pages }}</sup>
+      </h3>
+      <div class="entry-box">
+        {{- range .Pages }}
+        {{- if eq .Kind "page" }}
+        <p class="entry">
+          <a class="entry-link" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        </p>
+        {{- end }}
+        {{- end }}
+      </div>
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+  {{- end }}
+{{ end }}

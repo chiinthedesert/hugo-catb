@@ -1,0 +1,16 @@
+
+{{ define "header" }}
+  <img class="cutie" src="/img/white-cat.gif" alt="">
+  <p>> Xin chào Ი︵𐑼</p>
+  <p>> Tớ là Vũ Chí. Cảm ơn đã ghé qua.</p>
+  <p>> Chỗ này là hôm. Có mấy suy nghĩ và nốt cuối ngày.<span class="blink">&nbsp;</span></p>
+{{ end }}
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ range .Pages }}
+    <ul>
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    </ul>
+  {{ end }}
+{{ end }}

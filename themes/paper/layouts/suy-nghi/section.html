@@ -1,0 +1,46 @@
+{{ define "header" }}
+  <img class="cutie" src="/img/white-cat.gif" alt="">
+  <p>> Xin chào Ი︵𐑼</p>
+  <p>> Tớ là Vũ Chí. Cảm ơn đã ghé qua.</p>
+  <p>> Chỗ này toàn là suy nghĩ của tớ. <span class="moji">( ╹ -╹)?</span><span class="blink">&nbsp;</span></p>
+{{ end }}
+
+
+{{ define "main" }}
+<h1>những suy nghĩ</h1>
+
+  {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+
+  {{- if site.Params.ShowAllPagesInArchive }}
+  {{- $pages = site.RegularPages }}
+  {{- end }}
+
+  {{- range $pages.GroupByPublishDate "2006" }}
+  {{- if ne .Key "0001" }}
+  <div class="year-box">
+    {{- $year := replace .Key "0001" "" }}
+    <h2 class="year" id="{{ $year }}">
+        {{- $year -}}
+      <sup class="count">&nbsp;{{ len .Pages }}</sup>
+    </h2>
+    {{- range .Pages.GroupByDate "January" }}
+    <div class="month-box">
+      <h3 class="month" id="{{ $year }}-{{ .Key }}">
+          {{- .Key -}}
+        <sup class="count">&nbsp;{{ len .Pages }}</sup>
+      </h3>
+      <div class="entry-box">
+        {{- range .Pages }}
+        {{- if eq .Kind "page" }}
+        <p class="entry">
+          <a class="entry-link" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        </p>
+        {{- end }}
+        {{- end }}
+      </div>
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+  {{- end }}
+{{ end }}
