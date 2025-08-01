@@ -1,4 +1,4 @@
-baseURL = 'https://hugo-catb.netlify.app'
+baseURL = 'https://blog-cua-chi.netlify.app'
 languageCode = 'en-us'
 title = 'blog của chí'
 theme = 'paper'
