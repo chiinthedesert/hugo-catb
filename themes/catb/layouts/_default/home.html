@@ -1,0 +1,25 @@
+{{ define "header" }}
+  <p>> Xin chào Ი︵𐑼</p>
+  <p>> Tớ là Vũ Chí. Cảm ơn đã ghé qua.</p>
+  <p>> Chỗ này là hôm. Có mấy suy nghĩ và nốt cuối ngày.<span class="blink">&nbsp;</span></p>
+{{ end }}
+
+{{ define "main" }}
+  <h1>những bài viết tớ quý nhất</h1>
+  <div>
+    
+  </div>
+  <h1>những suy nghĩ gần đây</h1>
+  <div class="entry-box">
+    {{ range first 5 (sort (where (.Site.GetPage "section" "suy-nghi").Pages "Kind" "page") "Date" "desc") }}
+      <p><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+    {{ end }}
+  </div>
+  <h1>những nốt cuối ngày gần đây</h1>
+  <div class="entry-box">
+    {{ range first 5 (sort (where (.Site.GetPage "section" "not-cuoi-ngay").Pages "Kind" "page") "Date" "desc") }}
+      <p><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+    {{ end }}
+  </div>
+
+{{ end }}

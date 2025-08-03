@@ -1,13 +1,10 @@
 {{ define "header" }}
-  <img class="cutie" src="/cutie/black-cat.gif" alt="">
-  <p>> Xin chào Ი︵𐑼</p>
-  <p>> Tớ là Vũ Chí. Cảm ơn đã ghé qua.</p>
   <p>> Tớ mong câu từ của tớ... ý tớ là cậu thích bài viết này.<span class="blink">&nbsp;</span></p>
 {{ end }}
 
 
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  <h1 class="post-title">{{ .Title }}</h1>
   <div class="post-meta">
     {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
     {{ $dateHuman := .Date | time.Format ":date_long" }}
@@ -21,6 +18,7 @@
     {{/* Display Moods */}}
     {{ partial "terms.html" (dict "taxonomy" "moods" "page" .) }}
   </div>
-
-  {{ .Content }}
+  <div class="post-content">
+    {{ .Content }}
+  </div>
 {{ end }}

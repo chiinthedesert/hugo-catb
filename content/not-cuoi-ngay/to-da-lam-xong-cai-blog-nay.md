@@ -5,14 +5,14 @@ draft = false
 description = ""
 
 tags = []
-
 moods = ['happy']
-
-# Add any other default front matter you want here
-# Example: author = "Your Name"
 +++
-Tớ làm xong cái blog này chiều nay. Chủ đích của tớ là để viết thế nhưng mà không
-tài nào viết nổi ở trên nvim. Đôi cái đúng là Microsoft làm tốt hơn hẳn. Tớ biết
-là sẽ có cách nhưng mà phải tốn nhiều công tìm kiếm và thử nghiệm nữa.
+Tớ làm xong cái blog này chiều nay. Chủ đích của tớ là để viết thế nhưng mà không tài nào viết nổi ở trên nvim. Đôi cái đúng là Microsoft làm tốt hơn hẳn. Tớ biết là sẽ có cách nhưng mà phải tốn nhiều công tìm kiếm và thử nghiệm nữa.
 
-Tớ muốn một không gian viết có cảm giác giống sổ nhất có thể
+<br>
+
+Tớ muốn một không gian viết có cảm giác giống sổ nhất có thể.
+
+<br>
+
+Tớ còn rất nhiều cái muốn xửa đổi để làm trải nghiệm đọc trên blog của tớ thoải mái nhất.

@@ -1,7 +1,7 @@
 baseURL = 'https://blog-cua-chi.netlify.app'
 languageCode = 'en-us'
 title = 'blog của chí'
-theme = 'paper'
+theme = 'catb'
 titleCaseStyle = 'none'
 
 

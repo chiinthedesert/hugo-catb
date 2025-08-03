@@ -1,5 +1,6 @@
 body {
   background-color: #fcf5e4;
+  min-height: 100vh;
 }
 * {
   font-family: "Lora", serif;
@@ -8,26 +9,20 @@ body {
   box-sizing: border-box;
 }
 .container {
-  position: relative;
   max-width: 756px;
   margin: 0 auto;
+  position: relative;
 }
 
 
 
 
-.cutie {
-  position: absolute;
-  right: 20px;
-  top: -40px;
-  width: 100px;
-}
 header {
   width: 95%;
   background-color: #353535;
   padding: 1% 2%;
   margin: 30px auto;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 header * {
   font-family: "Roboto Mono", monospace;
@@ -52,40 +47,68 @@ header * {
 
 
 nav {
-  width: 95%;
-  margin: 0 auto;
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    margin: 0 auto;
+    text-align: right;
+    z-index: 1000;
 }
-nav > ul {
-  overflow-x: auto;
-  white-space: nowrap;
-  padding-bottom: 5px;
+.menu-toggler {
+    padding: 4px;
+    border-radius: 50%;
+    background-color: #f2e39b;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+  transition: background-color 0.2s ease-in-out;
 }
-nav li {
-  list-style: none;
-  margin-right: 15px;
-  display: inline-block;
+.menu-toggler:hover {
+    background-color: #f2d49b;
 }
-nav a {
-  font-weight: 450;
-  display: inline-block;
-  background-color: #353535;
-  border-radius: 3px;
-  padding: 1px 4px;
-  text-decoration: none;
-  font-family: "Roboto Mono", monospace;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  color: lightgray;
-}
-nav a.active {
-  color: whitesmoke;
-  background-color: #151515;
-}
-nav a:hover {
-  color: whitesmoke;
-  background-color: #151515;
-}
+.menu {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
 
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, visibility 0s linear 0.3s;
+
+    z-index: 999;
+}
+.menu.is-open {
+    max-height: 500px; /* Needs to be larger than your menu's full height */
+    opacity: 1;
+    visibility: visible;
+
+    /* Transition when opening */
+    transition: max-height 0.3s ease-in, opacity 0.3s ease-in, visibility 0s linear 0s;
+}
+.menu li {
+    list-style: none;
+}
+.menu li a {
+    display: inline-block;
+    background-color: #f2e39b;
+    border-radius: 3px;
+    padding: 1px 4px;
+    text-decoration: none;
+    font-family: "Roboto Mono", monospace;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out;
+    color: black;
+}
+.menu li a.active {
+    background-color: #f2d49b;
+}
+.menu li a:hover {
+  padding: 2px 6px;
+    background-color: #f2d49b;
+}
 
 
 
@@ -102,7 +125,8 @@ main h1 {
   margin: 15px 0 15px 0;
 }
 main p {
-  margin: 10px 0px 10px 10px;
+  margin-left: 10px;
+  font-size: 18px;
 }
 main a {
   color: black;
@@ -111,6 +135,7 @@ main a {
   padding: 1px 4px;
   border-radius: 2px;
   box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
   transition: background-color 0.3s ease-in-out;
 }
 main a:hover {
@@ -177,6 +202,9 @@ main a:hover {
 .entry-box {
   margin-left: 10px;
 }
+.entry-box p {
+  margin: 10px 0;
+}
 
 
 
@@ -190,6 +218,7 @@ main a:hover {
   list-style: none;
 }
 .tag-box a {
+  font-size: 18px;
 }
 
 

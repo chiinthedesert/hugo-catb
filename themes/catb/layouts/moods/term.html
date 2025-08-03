@@ -1,8 +1,6 @@
 {{ define "header" }}
-  <img class="cutie" src="/cutie/white-cat.gif" alt="">
-  <p>> Xin chào Ი︵𐑼</p>
-  <p>> Tớ là Vũ Chí. Cảm ơn đã ghé qua.</p>
-  <p>> Chỗ này toàn là nốt cuối ngày của tớ.<span class="moji">ᶻ 𝗓 𐰁ᶻ<span class="blink">&nbsp;</span></p>
+  <p>> Cảm ơn đã ghé qua.</p>
+  <p>> Chỗ này toàn là nốt cuối ngày của tớ.ᶻ 𝗓 𐰁ᶻ<span class="blink">&nbsp;</span></p>
 {{ end }}
 
 
@@ -10,7 +8,10 @@
 <h1>những nốt cuối ngày</h1>
 <div class="filter-box">
   <h3>mút ></h3>
-  <a href="/moods/depressed/">/ᐠ ╥ ˕ ╥マ</a><a href="/moods/sad/">/ᐠづ. ◟マ</a><a href="/moods/normal/">/ᐠ - ˕ -マ</a><a href="/moods/happy/">/ᐠ >ヮ< マ</a>
+  {{/* Get the current mood term from the page context. .Data.Term is the raw string. */}}
+  {{- $currentMoodSlug := .Data.Term -}}
+
+  <a href="/moods/depressed/"{{- if eq $currentMoodSlug "depressed" }} class="active" {{- end }}>/ᐠ ╥ ˕ ╥マ</a><a href="/moods/sad/"{{- if eq $currentMoodSlug "sad" }} class="active" {{- end }}>/ᐠづ. ◟マ</a><a href="/moods/normal/"{{- if eq $currentMoodSlug "normal" }} class="active" {{- end }}>/ᐠ - ˕ -マ</a><a href="/moods/happy/"{{- if eq $currentMoodSlug "happy" }} class="active" {{- end }}>/ᐠ >ヮ< マ</a>
 </div>
 
   {{- $pages := .Pages.ByPublishDate.Reverse }}
