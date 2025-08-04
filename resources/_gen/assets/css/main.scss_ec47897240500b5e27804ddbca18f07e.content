@@ -1,133 +1,144 @@
-body {
-  background-color: #fcf5e4;
-  min-height: 100vh;
+:root {
+  --base-bg-color: #fcf5e4;
+  /* Your body background color */
+  --base-font: "Lora", serif;
+  /* Your body font family */
+  --base-font-size: 18px;
+  /* Your body font size */
+  --max-width: 756px;
+  /* Your container max-width */
 }
+
+body {
+  background-color: var(--base-bg-color);
+  font-family: var(--base-font);
+  font-size: var(--base-font-size);
+  height: 3000px;
+}
+
 * {
-  font-family: "Lora", serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
 }
+
 .container {
-  max-width: 756px;
+  max-width: var(--max-width);
   margin: 0 auto;
   position: relative;
 }
 
+nav {
+  position: fixed;
+  top: 10px;
+  width: 95%;
+  max-width: calc(var(--max-width)*0.975);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: right;
+  z-index: 1000;
+}
 
+.menu-toggler {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 3px;
+  border-radius: 50%;
+  background-color: #f2e39b;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background-color 0.1s ease-in-out;
+}
 
+.menu-toggler:hover {
+  background-color: #f2d49b;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  z-index: 999;
+  transition: max-height 0.2s ease-out, visibility 0s linear 0.2s, margin 0.2s ease-in;
+}
+
+.menu.is-open {
+  margin: 15px 0;
+  max-height: 500px;
+  visibility: visible;
+  transition: max-height 0.2s ease-in, visibility 0s linear 0s, margin 0.2s ease-out;
+}
+
+.menu li a {
+  display: inline-block;
+  background-color: #f2e39b;
+  border-radius: 3px;
+  padding: 1px 4px;
+  text-decoration: none;
+  font-family: "Roboto Mono", monospace;
+  transition: background-color 0.1s ease-in-out;
+  color: black;
+}
+
+.menu li a.active {
+  background-color: #f2d49b;
+}
+
+.menu li a:hover {
+  background-color: #f2d49b;
+}
 
 header {
   width: 95%;
   background-color: #353535;
   padding: 1% 2%;
-  margin: 30px auto;
+  margin: 20px auto;
   border-radius: 10px;
 }
+
 header * {
   font-family: "Roboto Mono", monospace;
   font-weight: 450;
-  color: rgb(202, 210, 212);
+  color: #cad2d4;
 }
+
 .moji {
   display: inline-block;
 }
+
 .blink {
   display: inline-block;
   width: 0.6em;
   background: currentColor;
   animation: blink-animation 1s steps(2, start) infinite;
 }
+
 @keyframes blink-animation {
   to {
     visibility: hidden;
   }
 }
 
-
-
-nav {
-    position: absolute;
-    top: -15px;
-    right: 10px;
-    margin: 0 auto;
-    text-align: right;
-    z-index: 1000;
-}
-.menu-toggler {
-    padding: 4px;
-    border-radius: 50%;
-    background-color: #f2e39b;
-    cursor: pointer;
-    position: relative;
-    z-index: 1001;
-  transition: background-color 0.2s ease-in-out;
-}
-.menu-toggler:hover {
-    background-color: #f2d49b;
-}
-.menu {
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    visibility: hidden;
-
-    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, visibility 0s linear 0.3s;
-
-    z-index: 999;
-}
-.menu.is-open {
-    max-height: 500px; /* Needs to be larger than your menu's full height */
-    opacity: 1;
-    visibility: visible;
-
-    /* Transition when opening */
-    transition: max-height 0.3s ease-in, opacity 0.3s ease-in, visibility 0s linear 0s;
-}
-.menu li {
-    list-style: none;
-}
-.menu li a {
-    display: inline-block;
-    background-color: #f2e39b;
-    border-radius: 3px;
-    padding: 1px 4px;
-    text-decoration: none;
-    font-family: "Roboto Mono", monospace;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out;
-    color: black;
-}
-.menu li a.active {
-    background-color: #f2d49b;
-}
-.menu li a:hover {
-  padding: 2px 6px;
-    background-color: #f2d49b;
-}
-
-
-
-
-
 main {
   width: 95%;
   margin: 0 auto;
 }
-main * {
-}
+
 main h1 {
   font-size: 28px;
   margin: 15px 0 15px 0;
 }
+
 main p {
   margin-left: 10px;
   font-size: 18px;
 }
+
 main a {
   color: black;
   text-decoration: none;
@@ -136,30 +147,31 @@ main a {
   border-radius: 2px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
 }
+
 main a:hover {
   background-color: #f2d49b;
 }
-
-
-
 
 .filter-box {
   overflow-x: auto;
   white-space: nowrap;
   margin: 15px 0;
 }
+
 .filter-box h3 {
   display: inline-block;
 }
+
 .filter-box a {
   margin-right: 15px;
   font-size: 14px;
   display: inline-block;
   vertical-align: text-bottom;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
 }
+
 .filter-box a.active {
   background-color: #f2d49b;
 }
@@ -167,61 +179,63 @@ main a:hover {
 .post-meta {
   margin: 15px 0;
 }
+
 .post-meta * {
   color: gray;
 }
+
 .post-meta > div {
   margin: 5px 0;
 }
+
 .post-meta > div > div {
   display: inline;
 }
+
 .post-meta ul {
   display: inline-block;
 }
+
 .post-meta li {
   display: inline-block;
   list-style: none;
 }
 
-
-
 .count {
   font-size: 0.6em;
   color: gray;
 }
+
 .year-box {
   margin: 15px 0;
   border-bottom: thin solid rgba(128, 128, 128, 0.2);
 }
-.month-box {
-}
+
 .month {
   margin-left: 10px;
 }
+
 .entry-box {
   margin-left: 10px;
 }
+
 .entry-box p {
   margin: 10px 0;
 }
-
-
 
 .tag-box {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-
 }
+
 .tag-box li {
   list-style: none;
 }
+
 .tag-box a {
   font-size: 18px;
 }
-
-
 
 footer {
   padding: 60px 0;
@@ -229,3 +243,5 @@ footer {
   font-size: 14px;
   color: gray;
 }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,73 @@
+baseURL: "https://blog-cua-chi.netlify.app"
+languageCode: "en-us"
+title: "blog của chí"
+theme: "catb"
+titleCaseStyle: "none"
+
+taxonomies:
+  tag: "tags"
+  mood: "moods"
+
+markup:
+  goldmark:
+    duplicateResourceFiles: false
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      linkifyProtocol: "https"
+      strikethrough: true
+      table: true
+      taskList: true
+      cjk:
+        eastAsianLineBreaks: false
+        eastAsianLineBreaksStyle: "simple"
+        enable: false
+        escapedSpace: false
+      extras:
+        delete:
+          enable: false
+        insert:
+          enable: false
+        mark:
+          enable: false
+        subscript:
+          enable: false
+        superscript:
+          enable: false
+      passthrough:
+        enable: false
+        delimiters:
+          block: []
+          inline: []
+      typographer:
+        apostrophe: "&rsquo;"
+        disable: false
+        ellipsis: "&hellip;"
+        emDash: "&mdash;"
+        enDash: "&ndash;"
+        leftAngleQuote: "&laquo;"
+        leftDoubleQuote: "&ldquo;"
+        leftSingleQuote: "&lsquo;"
+        rightAngleQuote: "&raquo;"
+        rightDoubleQuote: "&rdquo;"
+        rightSingleQuote: "&rsquo;"
+    parser:
+      autoDefinitionTermID: false
+      autoHeadingID: true
+      autoIDType: "github"
+      wrapStandAloneImageWithinParagraph: true
+      attribute:
+        block: false
+        title: true
+    renderHooks:
+      image:
+        enableDefault: false
+        useEmbedded: "auto"
+      link:
+        enableDefault: false
+        useEmbedded: "auto"
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false

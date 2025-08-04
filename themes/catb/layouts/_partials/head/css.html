@@ -1,8 +1,14 @@
-{{- with resources.Get "css/main.css" }}
+{{- with resources.Get "css/main.scss" }}
+  {{- $options := (dict
+    "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
+    "enableSourceMap" hugo.IsDevelopment
+  ) }}
+  {{- $style := . | toCSS $options }}
+
   {{- if hugo.IsDevelopment }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}">
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   {{- else }}
-    {{- with . | minify | fingerprint }}
+    {{- with $style | minify | fingerprint }}
       <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
     {{- end }}
   {{- end }}

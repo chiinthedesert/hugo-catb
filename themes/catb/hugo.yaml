@@ -1,0 +1,30 @@
+baseURL: "https://example.org/"
+languageCode: "en-US"
+title: "catb"
+
+taxonomies:
+  tag: "tags"
+  mood: "moods"
+
+menus:
+  main:
+    - name: "hôm"
+      pageRef: "/"
+      weight: 10
+    - name: "về tớ"
+      pageRef: "/about/"
+      weight: 20
+    - name: "suy nghĩ"
+      pageRef: "/suy-nghi/"
+      weight: 21
+    - name: "nốt cuối ngày"
+      pageRef: "/not-cuoi-ngay/"
+      weight: 22
+    - name: "chủ đề"
+      pageRef: "/tags/"
+      weight: 30
+
+module:
+  hugoVersion:
+    extended: false
+    min: "0.146.0"
