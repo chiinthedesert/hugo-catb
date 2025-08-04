@@ -3,16 +3,15 @@
   <p>> Chỗ này toàn là nốt cuối ngày của tớ.ᶻ 𝗓 𐰁ᶻ<span class="blink">&nbsp;</span></p>
 {{ end }}
 
-
 {{ define "main" }}
-<h1>những nốt cuối ngày</h1>
-<div class="filter-box">
-  <h3>mút ></h3>
-  {{/* Get the current mood term from the page context. .Data.Term is the raw string. */}}
-  {{- $currentMoodSlug := .Data.Term -}}
+  <h1>những nốt cuối ngày</h1>
+  <div class="filter-box">
+    <h3>mút ></h3>
+    {{/* Get the current mood term from the page context. .Data.Term is the raw string. */}}
+    {{- $currentMoodSlug := .Data.Term -}}
 
-  <a href="/moods/depressed/"{{- if eq $currentMoodSlug "depressed" }} class="active" {{- end }}>/ᐠ ╥ ˕ ╥マ</a><a href="/moods/sad/"{{- if eq $currentMoodSlug "sad" }} class="active" {{- end }}>/ᐠづ. ◟マ</a><a href="/moods/normal/"{{- if eq $currentMoodSlug "normal" }} class="active" {{- end }}>/ᐠ - ˕ -マ</a><a href="/moods/happy/"{{- if eq $currentMoodSlug "happy" }} class="active" {{- end }}>/ᐠ >ヮ< マ</a>
-</div>
+    <a href="/moods/depressed/"{{- if eq $currentMoodSlug "depressed" }} class="active" {{- end }}>/ᐠ ╥ ˕ ╥マ</a><a href="/moods/sad/"{{- if eq $currentMoodSlug "sad" }} class="active" {{- end }}>/ᐠづ. ◟マ</a><a href="/moods/normal/"{{- if eq $currentMoodSlug "normal" }} class="active" {{- end }}>/ᐠ - ˕ -マ</a><a href="/moods/happy/"{{- if eq $currentMoodSlug "happy" }} class="active" {{- end }}>/ᐠ >ヮ< マ</a>
+  </div>
 
   {{- $pages := .Pages.ByPublishDate.Reverse }}
   {{- if site.Params.ShowAllPagesInArchive }}
@@ -23,10 +22,10 @@
   {{- if ne .Key "0001" }}
   <div class="year-box">
     {{- $year := replace .Key "0001" "" }}
-    <h2 class="year" id="{{ $year }}">
+    <h3 class="year" id="{{ $year }}">
         {{- $year -}}
       <sup class="count">&nbsp;{{ len .Pages }}</sup>
-    </h2>
+    </h3>
     {{- range .Pages.GroupByDate "January" }}
     <div class="month-box">
       <h3 class="month" id="{{ $year }}-{{ .Key }}">

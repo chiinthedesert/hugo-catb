@@ -1,0 +1,10 @@
+.moods-box {
+  overflow-x: auto;
+  white-space: nowrap;
+  margin: 15px 0;
+  display: flex;
+  gap: 10px;
+}
+.moods-box a {
+  font-size: 14px;
+}

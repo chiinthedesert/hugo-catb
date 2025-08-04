@@ -12,13 +12,13 @@
   <h1>những suy nghĩ gần đây</h1>
   <div class="entry-box">
     {{ range first 5 (sort (where (.Site.GetPage "section" "suy-nghi").Pages "Kind" "page") "Date" "desc") }}
-      <p><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+      <p class="entry"><a class="entry-link" href="{{ .RelPermalink }}">{{ .Title }}</a></p>
     {{ end }}
   </div>
   <h1>những nốt cuối ngày gần đây</h1>
   <div class="entry-box">
     {{ range first 5 (sort (where (.Site.GetPage "section" "not-cuoi-ngay").Pages "Kind" "page") "Date" "desc") }}
-      <p><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+      <p class="entry"><a class="entry-link" href="{{ .RelPermalink }}">{{ .Title }}</a></p>
     {{ end }}
   </div>
 

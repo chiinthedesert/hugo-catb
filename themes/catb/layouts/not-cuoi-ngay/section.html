@@ -3,10 +3,9 @@
   <p>> Chỗ này toàn là nốt cuối ngày của tớ.<span class="moji">ᶻ 𝗓 𐰁ᶻ<span class="blink">&nbsp;</span></p>
 {{ end }}
 
-
 {{ define "main" }}
 <h1>những nốt cuối ngày</h1>
-<div class="filter-box">
+<div class="moods-box">
   <h3>mút ></h3>
   <a href="/moods/depressed/">/ᐠ ╥ ˕ ╥マ</a><a href="/moods/sad/">/ᐠづ. ◟マ</a><a href="/moods/normal/">/ᐠ - ˕ -マ</a><a href="/moods/happy/">/ᐠ >ヮ< マ</a>
 </div>
@@ -20,10 +19,10 @@
   {{- if ne .Key "0001" }}
   <div class="year-box">
     {{- $year := replace .Key "0001" "" }}
-    <h2 class="year" id="{{ $year }}">
+    <h3 class="year" id="{{ $year }}">
         {{- $year -}}
       <sup class="count">&nbsp;{{ len .Pages }}</sup>
-    </h2>
+    </h3>
     {{- range .Pages.GroupByDate "January" }}
     <div class="month-box">
       <h3 class="month" id="{{ $year }}-{{ .Key }}">

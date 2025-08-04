@@ -10,13 +10,10 @@
     {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
     {{ $dateHuman := .Date | time.Format ":date_long" }}
     <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-    {{/* Display Tags */}}
+
+    {{/* Display tags, categories, moods */}}
     {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-
-    {{/* Display Categories */}}
     {{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}
-
-    {{/* Display Moods */}}
     {{ partial "terms.html" (dict "taxonomy" "moods" "page" .) }}
   </div>
   <div class="post-content">

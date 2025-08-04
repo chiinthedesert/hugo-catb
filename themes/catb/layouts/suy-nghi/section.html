@@ -17,10 +17,10 @@
   {{- if ne .Key "0001" }}
   <div class="year-box">
     {{- $year := replace .Key "0001" "" }}
-    <h2 class="year" id="{{ $year }}">
+    <h3 class="year" id="{{ $year }}">
         {{- $year -}}
       <sup class="count">&nbsp;{{ len .Pages }}</sup>
-    </h2>
+    </h3>
     {{- range .Pages.GroupByDate "January" }}
     <div class="month-box">
       <h3 class="month" id="{{ $year }}-{{ .Key }}">

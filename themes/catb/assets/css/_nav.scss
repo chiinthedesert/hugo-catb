@@ -1,0 +1,57 @@
+nav {
+  position: fixed;
+  top: 10px;
+  width: 95%;
+  max-width: calc(var(--max-width)*0.975);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: right;
+  z-index: 1000;
+}
+.menu-toggler {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 3px;
+  border-radius: 50%;
+  background-color: #f2e39b;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background-color 0.1s ease-in-out;
+}
+.menu-toggler:hover {
+  background-color: #f2d49b;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  z-index: 999;
+  transition: max-height 0.2s ease-out, visibility 0s linear 0.2s, margin 0.2s ease-in;
+}
+.menu.is-open {
+  margin: 15px 0;
+  max-height: 500px;
+  visibility: visible;
+  transition: max-height 0.2s ease-in, visibility 0s linear 0s, margin 0.2s ease-out;
+}
+.menu li {
+}
+.menu li a {
+  display: inline-block;
+  background-color: #f2e39b;
+  border-radius: 3px;
+  padding: 1px 4px;
+  text-decoration: none;
+  font-family: "Roboto Mono", monospace;
+  transition: background-color 0.1s ease-in-out;
+  color: black;
+}
+.menu li a.active {
+  background-color: #f2d49b;
+}
+.menu li a:hover {
+  background-color: #f2d49b;
+}

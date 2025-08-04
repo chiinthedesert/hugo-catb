@@ -1,0 +1,26 @@
+header {
+  width: 95%;
+  background-color: #353535;
+  padding: 1% 2%;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+header * {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 450;
+  color: lightgray;
+}
+.moji {
+  display: inline-block;
+}
+.blink {
+  display: inline-block;
+  width: 0.6em;
+  background: currentColor;
+  animation: blink-animation 1s steps(2, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}

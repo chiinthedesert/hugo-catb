@@ -1,7 +1,16 @@
+{{ define "header" }}
+  <p>> Cảm ơn đã ghé qua.</p>
+  <p>> Chỗ này chứa cảm xúc của những nốt cuối ngày.<span class="blink">&nbsp;</span></p>
+{{ end }}
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-  {{ end }}
+  <h1>chọn cảm xúc</h1>
+  <ul class="tag-box">
+    {{ range .Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }} 
+          <sup class="count">&nbsp;{{ len .Pages }}</sup>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
 {{ end }}
